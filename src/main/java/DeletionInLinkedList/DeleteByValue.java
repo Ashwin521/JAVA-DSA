@@ -1,6 +1,6 @@
 package DeletionInLinkedList;
 
-public class TestClass {
+public class DeleteByValue {
     class Node {
         int data;
         Node next;
@@ -65,7 +65,7 @@ public class TestClass {
     }
 
     public static void main(String[] args) {
-        TestClass obj = new TestClass();
+        DeleteByValue obj = new DeleteByValue();
         obj.add(20);
         obj.add(21);
         obj.insertAtHead(10);
