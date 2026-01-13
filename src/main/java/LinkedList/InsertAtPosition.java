@@ -1,6 +1,6 @@
 package LinkedList;
 
-
+// Node class
 class Node {
     int data;
     Node next;
@@ -8,15 +8,14 @@ class Node {
     Node(int data) {
         this.data = data;
         this.next = null;
-
     }
-
-
 }
 
+// LinkedList class
 class LinkedList {
     Node head;
 
+    // Insert at given position (1-based)
     public void insertAtPosition(int data, int position) {
         Node newNode = new Node(data);
 
@@ -36,11 +35,17 @@ class LinkedList {
             prev = prev.next;
         }
 
+        if (prev == null) {
+            System.out.println("Position out of bounds");
+            return;
+        }
+
         // Insert the new node
         newNode.next = prev.next; // newNode points to node currently at the position
         prev.next = newNode;      // previous node points to newNode
     }
 
+    // Print linked list
     public void printList() {
         Node current = head;
         while (current != null) {
@@ -51,22 +56,21 @@ class LinkedList {
     }
 }
 
-// **Public class must match file name**
+// Public class must match file name
 public class InsertAtPosition {
     public static void main(String[] args) {
-        Linkedlist list = new Linkedlist();
+        LinkedList list = new LinkedList(); // Fixed typo: Linkedlist -> LinkedList
 
         // Inserting nodes
         list.insertAtPosition(10, 1); // 10
         list.insertAtPosition(20, 2); // 10 -> 20
         list.insertAtPosition(30, 3); // 10 -> 20 -> 30
         list.insertAtPosition(15, 2); // Insert 15 at position 2
-
-        list.printList(); // Output: 10 -> 15 -> 20 -> 30 -> null
+        list.printList();              // Output: 10 -> 15 -> 20 -> 30 -> null
 
         // Insert at head
         list.insertAtPosition(5, 1);
-        list.printList(); // Output: 5 -> 10 -> 15 -> 20 -> 30 -> null
+        list.printList();              // Output: 5 -> 10 -> 15 -> 20 -> 30 -> null
 
         // Insert at end (position beyond current size)
         list.insertAtPosition(40, 10); // prints "Position out of bounds"
