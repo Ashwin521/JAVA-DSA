@@ -25,6 +25,14 @@ public class LLImplementationOfQueue {
         }
     }
 
+    public void remove() {
+        head = head.next;
+    }
+
+//    public Node peek(){
+//
+//    }
+
     public void display() {
         Node temp = head;
         while (temp != null) {
@@ -40,6 +48,10 @@ public class LLImplementationOfQueue {
         q.add(2);
         q.add(3);
         q.add(4);
+
+        q.display();
+        q.remove();
+        System.out.println();
         q.display();
     }
 }
